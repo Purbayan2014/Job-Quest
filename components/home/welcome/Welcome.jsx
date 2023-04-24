@@ -12,11 +12,12 @@ import { useRouter } from "expo-router";
 import styles from "./welcome.style";
 import { icons, SIZES } from "../../../constants";
 
-const workTypes = ["Full-time", "Part-time", "Contracts"];
+const workTypes = ["Professional SDE Jobs India", "Fresher SDE JOBS India", "Intern SDE Jobs India", "Fresher Full Stack SDE Jobs India", "Remote SDE Jobs India",
+        "Fresher Machine learning Jobs India", "Frontend Developer Jobs India", "Web Developer Jobs India", "Cyber Security Jobs India"];
 
 const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   const router = useRouter();
-  const [activeJobType, setActiveJobType] = useState("Full-time");
+  const [activeJobType, setActiveJobType] = useState("Professional SDE JOBS");
 
   return (
     <View>
@@ -32,7 +33,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
           <TextInput
             style={styles.searchInput}
             value={searchTerm}
-            // onChangeText={(text) => setSearchTerm(text)}
+            onChangeText={(text) => setSearchTerm(text)}
             placeholder='What are you looking for?'
           />
         </View>
