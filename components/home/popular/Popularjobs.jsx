@@ -5,12 +5,19 @@ import { useRouter } from 'expo-router';
 import styles from './popularjobs.style'
 import {COLORS, SIZES} from '../../../constants';
 import PopularJobCard from '../../common/cards/popular/PopularJobCard';
+import useFetch from '../../../hook/useFetch';
+
 const Popularjobs = () => {
 
   const router = useRouter();
-  const isLoading = false;
-  const error = false;
+  const { data, isLoading, error }  = useFetch(
+    'search', {
+      query : 'Popular Fresher and Experienced Software Developer Jobs India',
+      num_pages:5,
+    }
+  )
 
+  console.log(data)
 
   return (
     <View style={styles.container}>
@@ -31,7 +38,7 @@ const Popularjobs = () => {
           <Text>Something went wrong while loading the Page !! </Text>
         ) : (
           <FlatList 
-            data={[1,2,3]}
+            data={data}
             renderItem={
               ({ item }) => (
                 <PopularJobCard 

@@ -1,13 +1,47 @@
 import React from 'react'
-import { View, Text } from 'react-native'
-
+import { View, Text, TouchableOpacity, Image } from 'react-native'
 import styles from './popularjobcard.style'
+import { checkImageURL } from '../../../../utils'
 
-const PopularJobCard = () => {
+const PopularJobCard = ({item, selectedJob, handleCardPress}) => {
   return (
-    <View>
-      <Text>PopularJobCard</Text>
-    </View>
+    <TouchableOpacity
+      style={styles.container(selectedJob, item)}
+      onPress={()=>handleCardPress(item)} 
+    >
+      {/* rendering the company logo */}
+      <TouchableOpacity style={styles.logoContainer(selectedJob, item)}>
+        <Image 
+          // if the company logo is not available then render a static image
+          source={{
+            uri: checkImageURL(item?.employer_logo)
+            ? item.employer_logo
+            : "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg",
+          }}
+          resizeMode='contain'
+          style={styles.logoImage}
+        />
+      </TouchableOpacity>
+      {/* company name */}
+      <Text style={styles.companyName} numberOfLines={1}>{item.employer_name}</Text>
+
+
+      <View style={styles.infoContainer}>
+        {/* job title */}
+        <Text style={styles.jobName(selectedJob, item)} numberOfLines={1}>
+          {item.job_title}
+        </Text>
+        <View style={styles.infoWrapper}>
+          {/* job publisher */}
+          <Text style={styles.publisher(selectedJob, item)}>
+            {item?.job_publisher} -
+          </Text>
+          {/* job location country */}
+          <Text style={styles.location}> {item.job_country}</Text>
+        </View>
+      </View>
+
+    </TouchableOpacity>
   )
 }
 
