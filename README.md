@@ -14,6 +14,16 @@ Each job listing in Token Trove has several tabs such as qualification, overview
 
 In summary, Token Trove is an all-in-one job search app that offers a convenient and user-friendly experience for both fresher and professional job seekers. Try it out today and take your first step towards landing your dream job!
 
+# Features
+
+- Multiple search tags and filters for efficient job searching
+- Real-time job posting updates through the Jsearch API from Rapid API
+- Job posts include tabs for qualification, overview, and description for informed decision making
+- Pagination support for each job search page for easy navigation
+- Clean and sleek UI for an enhanced user experience
+- Separate sections for fresher and professional jobs for easier relevance
+- Secure and reliable app for a seamless job search experience.
+
 
 # Working Demo of the App
 
